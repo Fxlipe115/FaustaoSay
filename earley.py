@@ -82,7 +82,7 @@ def read_file(file_path):
     terminals = []
     rules = {}
 
-    for line in open(file_path, "rU"):
+    for line in open(file_path, "r", newline=None):
         if proc == "Terminais" and line.split('#')[0].strip() != "Terminais" and \
                 line.split('#')[0].strip() != "Variaveis":
             terminals.append(line.split('[ ')[1].split(' ]')[0])
