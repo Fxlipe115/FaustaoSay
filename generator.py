@@ -6,7 +6,7 @@ import os.path
 import earley
 
 import importlib.util
-playsound_spec = importlib.util.find_spec('playsound')
+playsound_spec = importlib.util.find_spec('playsound3')
 has_audio = playsound_spec is not None
 
 
@@ -16,7 +16,7 @@ def create_parser():
 
 def handle_audio(sentence, audio_dir):
     module = importlib.util.module_from_spec(playsound_spec)
-    sys.modules['playsound'] = module
+    sys.modules['playsound3'] = module
     playsound_spec.loader.exec_module(module)
 
     audio_dir = os.path.abspath(audio_dir)
